@@ -1,31 +1,57 @@
-// Place the mark X
-// Switch Turns with O
-// Check for Win on either X or O
+// Place the mark X --- DONE
+// Switch Turns with O --- DONE
+// Check for Win on either X or O --- DONE(?)
 // Check for Draw
+// CLear board
 
 let currentPlayer = 'X'
 
 let gameActive = true
 
 function switchPlayers() {
-  if (currentPlayer === 'X') {
+  if (currentPlayer === 'X' && gameActive) {
     currentPlayer = 'O'
+    document.querySelector('.gameStatus').innerText = 'Player Turn: ' + currentPlayer
   } else {
     currentPlayer = 'X'
+    document.querySelector('.gameStatus').innerText = 'Player Turn: ' + currentPlayer
   }
 }
 
-//Check to see who has won the game, X / O ?
-//1. Tjek for om felt 1,2,3 har de samme tegn --- DONE
-//2. Tjek for om felt 4,5,6 har de samme tegn
-//3. Tjek for om felt 7,8,9 har de samme tegn
-//4. Tjek for om felt 1,4,7 har de samme tegn
-//5. Tjek for om felt 2,5,8 har de samme tegn
-//6. Tjek for om felt 3,6,9 har de samme tegn
-//7. Tjek for om felt 1,5,9 har de samme tegn
-//8. Tjek for om felt 3,5,7 har de samme tegn
-//9. Sig hvem der har vundet
-//Giv mulighed for at genstarte spillet (clear board)
+// Current bug:
+// It says X won if you click somewhere on the board after O wins
+function gameStatus() {
+  if (
+    (document.querySelector('.cell1').innerText !== '' &&
+      document.querySelector('.cell1').innerText === document.querySelector('.cell2').innerText &&
+      document.querySelector('.cell2').innerText === document.querySelector('.cell3').innerText) ||
+    (document.querySelector('.cell4').innerText !== '' &&
+      document.querySelector('.cell4').innerText === document.querySelector('.cell5').innerText &&
+      document.querySelector('.cell5').innerText === document.querySelector('.cell6').innerText) ||
+    (document.querySelector('.cell7').innerText !== '' &&
+      document.querySelector('.cell7').innerText === document.querySelector('.cell8').innerText &&
+      document.querySelector('.cell8').innerText === document.querySelector('.cell9').innerText) ||
+    (document.querySelector('.cell1').innerText !== '' &&
+      document.querySelector('.cell1').innerText === document.querySelector('.cell4').innerText &&
+      document.querySelector('.cell4').innerText === document.querySelector('.cell7').innerText) ||
+    (document.querySelector('.cell2').innerText !== '' &&
+      document.querySelector('.cell2').innerText === document.querySelector('.cell5').innerText &&
+      document.querySelector('.cell5').innerText === document.querySelector('.cell8').innerText) ||
+    (document.querySelector('.cell3').innerText !== '' &&
+      document.querySelector('.cell3').innerText === document.querySelector('.cell6').innerText &&
+      document.querySelector('.cell6').innerText === document.querySelector('.cell9').innerText) ||
+    (document.querySelector('.cell1').innerText !== '' &&
+      document.querySelector('.cell1').innerText === document.querySelector('.cell5').innerText &&
+      document.querySelector('.cell5').innerText === document.querySelector('.cell9').innerText) ||
+    (document.querySelector('.cell3').innerText !== '' &&
+      document.querySelector('.cell3').innerText === document.querySelector('.cell5').innerText &&
+      document.querySelector('.cell5').innerText === document.querySelector('.cell7').innerText)
+  ) {
+    switchPlayers() //Calling this to print out who won properly for now.
+    document.querySelector('.gameStatus').innerText = 'WINNER: ' + currentPlayer
+    gameActive = false
+  }
+}
 
 document.querySelector('.cell1').onclick = function () {
   if (gameActive && document.querySelector('.cell1').innerText === '') {
@@ -36,20 +62,7 @@ document.querySelector('.cell1').onclick = function () {
     }
     switchPlayers()
   }
-
-  console.log(document.querySelector('.cell1').innerText)
-  console.log(document.querySelector('.cell2').innerText)
-
-  if (
-    (document.querySelector('.cell1').innerText !== '' &&
-      document.querySelector('.cell1').innerText === document.querySelector('.cell2').innerText &&
-      document.querySelector('.cell2').innerText === document.querySelector('.cell3').innerText) ||
-    (document.querySelector('.cell4').innerText !== '' &&
-      document.querySelector('.cell4').innerText === document.querySelector('.cell5').innerText &&
-      document.querySelector('.cell5').innerText === document.querySelector('.cell6').innerText)
-  ) {
-    console.log('Jeg vandt')
-  }
+  gameStatus()
 }
 
 document.querySelector('.cell2').onclick = function () {
@@ -61,6 +74,7 @@ document.querySelector('.cell2').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell3').onclick = function () {
@@ -72,6 +86,7 @@ document.querySelector('.cell3').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell4').onclick = function () {
@@ -83,6 +98,7 @@ document.querySelector('.cell4').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell5').onclick = function () {
@@ -94,6 +110,7 @@ document.querySelector('.cell5').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell6').onclick = function () {
@@ -105,6 +122,7 @@ document.querySelector('.cell6').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell7').onclick = function () {
@@ -116,6 +134,7 @@ document.querySelector('.cell7').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell8').onclick = function () {
@@ -127,6 +146,7 @@ document.querySelector('.cell8').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
 
 document.querySelector('.cell9').onclick = function () {
@@ -138,4 +158,5 @@ document.querySelector('.cell9').onclick = function () {
     }
     switchPlayers()
   }
+  gameStatus()
 }
