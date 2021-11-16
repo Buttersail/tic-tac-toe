@@ -18,8 +18,6 @@ function switchPlayers() {
   }
 }
 
-// Current bug:
-// It says X won if you click somewhere on the board after O wins
 function gameStatus() {
   if (
     (document.querySelector('.cell1').innerText !== '' &&
@@ -47,10 +45,26 @@ function gameStatus() {
       document.querySelector('.cell3').innerText === document.querySelector('.cell5').innerText &&
       document.querySelector('.cell5').innerText === document.querySelector('.cell7').innerText)
   ) {
-    switchPlayers() //Calling this to print out who won properly for now.
+    switchPlayers() // Calling this to print out who won properly for now.
     document.querySelector('.gameStatus').innerText = 'WINNER: ' + currentPlayer
     gameActive = false
   }
+}
+
+// Bit ugly code, but it does the job!
+document.querySelector('.reset').onclick = function () {
+  document.querySelector('.cell1').innerText = ''
+  document.querySelector('.cell2').innerText = ''
+  document.querySelector('.cell3').innerText = ''
+  document.querySelector('.cell4').innerText = ''
+  document.querySelector('.cell5').innerText = ''
+  document.querySelector('.cell6').innerText = ''
+  document.querySelector('.cell7').innerText = ''
+  document.querySelector('.cell8').innerText = ''
+  document.querySelector('.cell9').innerText = ''
+  currentPlayer = 'X'
+  document.querySelector('.gameStatus').innerText = 'Restarted Game - Cleared Board!'
+  gameActive = true
 }
 
 document.querySelector('.cell1').onclick = function () {
@@ -61,8 +75,8 @@ document.querySelector('.cell1').onclick = function () {
       document.querySelector('.cell1').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell2').onclick = function () {
@@ -73,8 +87,8 @@ document.querySelector('.cell2').onclick = function () {
       document.querySelector('.cell2').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell3').onclick = function () {
@@ -85,8 +99,8 @@ document.querySelector('.cell3').onclick = function () {
       document.querySelector('.cell3').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell4').onclick = function () {
@@ -97,8 +111,8 @@ document.querySelector('.cell4').onclick = function () {
       document.querySelector('.cell4').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell5').onclick = function () {
@@ -109,8 +123,8 @@ document.querySelector('.cell5').onclick = function () {
       document.querySelector('.cell5').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell6').onclick = function () {
@@ -121,8 +135,8 @@ document.querySelector('.cell6').onclick = function () {
       document.querySelector('.cell6').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell7').onclick = function () {
@@ -133,8 +147,8 @@ document.querySelector('.cell7').onclick = function () {
       document.querySelector('.cell7').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell8').onclick = function () {
@@ -145,8 +159,8 @@ document.querySelector('.cell8').onclick = function () {
       document.querySelector('.cell8').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
 
 document.querySelector('.cell9').onclick = function () {
@@ -157,6 +171,6 @@ document.querySelector('.cell9').onclick = function () {
       document.querySelector('.cell9').innerText = currentPlayer
     }
     switchPlayers()
+    gameStatus()
   }
-  gameStatus()
 }
