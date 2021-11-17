@@ -51,6 +51,11 @@ function gameStatus() {
   }
 }
 
+// Figure a way out to properly implement this feature.
+function aiMove() {
+  document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+}
+
 // Bit ugly code, but it does the job!
 document.querySelector('.reset').onclick = function () {
   document.querySelector('.cell1').innerText = ''
@@ -77,6 +82,7 @@ document.querySelector('.cell1').onclick = function () {
     switchPlayers()
     gameStatus()
   }
+  aiMove()
 }
 
 document.querySelector('.cell2').onclick = function () {
