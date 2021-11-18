@@ -51,9 +51,17 @@ function gameStatus() {
   }
 }
 
-// Figure a way out to properly implement this feature.
-function aiMove() {
-  document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+// Find a way to find another empty cell since it "skips" if the cell is already occupied
+
+document.querySelector('.ai').onclick = function () {
+  debugger
+  if (document.querySelector('.cell' + Math.ceil(Math.random() * 9)).innerText === '') {
+    document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+  } else if (document.querySelector('.cell' + Math.ceil(Math.random() * 9)).innerText === 'X') {
+    console.log('occupied with X')
+  } else if (document.querySelector('.cell' + Math.ceil(Math.random() * 9)).innerText === 'O') {
+    console.log('occupied with O')
+  }
 }
 
 // Bit ugly code, but it does the job!
@@ -82,7 +90,6 @@ document.querySelector('.cell1').onclick = function () {
     switchPlayers()
     gameStatus()
   }
-  aiMove()
 }
 
 document.querySelector('.cell2').onclick = function () {
