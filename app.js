@@ -53,10 +53,53 @@ function gameStatus() {
 
 // Find a way to find another empty cell since it "skips" if the cell is already occupied
 
+// Find en tilfældig celle
+// Tjek om cellen indeholder noget, hvis ikke sæt enten kryds eller bolle
+// Hvis cellen indeholder noget, skal den finde en ny tilfældig celle
+// Dette skal ske med rekursion, indtil der ikke er flere tomme celler, eller nogen vinder
+
 document.querySelector('.ai').onclick = function () {
-  if (document.querySelector('.cell' + Math.ceil(Math.random() * 9)).innerText === '') {
+  if (
+    document.querySelector('.cell1').innerText === '' ||
+    document.querySelector('.cell2').innerText === '' ||
+    document.querySelector('.cell3').innerText === '' ||
+    document.querySelector('.cell4').innerText === '' ||
+    document.querySelector('.cell5').innerText === '' ||
+    document.querySelector('.cell6').innerText === '' ||
+    document.querySelector('.cell7').innerText === '' ||
+    document.querySelector('.cell8').innerText === '' ||
+    document.querySelector('.cell9').innerText === ''
+  ) {
     document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
-    console.log(document.querySelector('.cell' + Math.ceil(Math.random() * 9)))
+    console.log('X')
+  }
+  if (
+    document.querySelector('.cell1').innerText === 'X' ||
+    document.querySelector('.cell2').innerText === 'X' ||
+    document.querySelector('.cell3').innerText === 'X' ||
+    document.querySelector('.cell4').innerText === 'X' ||
+    document.querySelector('.cell5').innerText === 'X' ||
+    document.querySelector('.cell6').innerText === 'X' ||
+    document.querySelector('.cell7').innerText === 'X' ||
+    document.querySelector('.cell8').innerText === 'X' ||
+    document.querySelector('.cell9').innerText === 'X'
+  ) {
+    document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+    console.log('test X')
+  }
+  if (
+    document.querySelector('.cell1').innerText === 'O' ||
+    document.querySelector('.cell2').innerText === 'O' ||
+    document.querySelector('.cell3').innerText === 'O' ||
+    document.querySelector('.cell4').innerText === 'O' ||
+    document.querySelector('.cell5').innerText === 'O' ||
+    document.querySelector('.cell6').innerText === 'O' ||
+    document.querySelector('.cell7').innerText === 'O' ||
+    document.querySelector('.cell8').innerText === 'O' ||
+    document.querySelector('.cell9').innerText === 'O'
+  ) {
+    document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+    console.log('test O')
   }
 }
 
