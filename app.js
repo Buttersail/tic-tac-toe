@@ -73,34 +73,30 @@ document.querySelector('.ai').onclick = function () {
     document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
     console.log('X')
   }
-  if (
-    document.querySelector('.cell1').innerText === 'X' ||
-    document.querySelector('.cell2').innerText === 'X' ||
-    document.querySelector('.cell3').innerText === 'X' ||
-    document.querySelector('.cell4').innerText === 'X' ||
-    document.querySelector('.cell5').innerText === 'X' ||
-    document.querySelector('.cell6').innerText === 'X' ||
-    document.querySelector('.cell7').innerText === 'X' ||
-    document.querySelector('.cell8').innerText === 'X' ||
-    document.querySelector('.cell9').innerText === 'X'
-  ) {
-    document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
-    console.log('test X')
-  }
-  if (
-    document.querySelector('.cell1').innerText === 'O' ||
-    document.querySelector('.cell2').innerText === 'O' ||
-    document.querySelector('.cell3').innerText === 'O' ||
-    document.querySelector('.cell4').innerText === 'O' ||
-    document.querySelector('.cell5').innerText === 'O' ||
-    document.querySelector('.cell6').innerText === 'O' ||
-    document.querySelector('.cell7').innerText === 'O' ||
-    document.querySelector('.cell8').innerText === 'O' ||
-    document.querySelector('.cell9').innerText === 'O'
-  ) {
-    document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
-    console.log('test O')
-  }
+
+  // if (
+  //   document.querySelector('.cell1').innerText === 'X' ||
+  //   document.querySelector('.cell2').innerText === 'X' ||
+  //   document.querySelector('.cell3').innerText === 'X' ||
+  //   document.querySelector('.cell4').innerText === 'X' ||
+  //   document.querySelector('.cell5').innerText === 'X' ||
+  //   document.querySelector('.cell6').innerText === 'X' ||
+  //   document.querySelector('.cell7').innerText === 'X' ||
+  //   document.querySelector('.cell8').innerText === 'X' ||
+  //   document.querySelector('.cell9').innerText === 'X' ||
+  //   document.querySelector('.cell1').innerText === 'O' ||
+  //   document.querySelector('.cell2').innerText === 'O' ||
+  //   document.querySelector('.cell3').innerText === 'O' ||
+  //   document.querySelector('.cell4').innerText === 'O' ||
+  //   document.querySelector('.cell5').innerText === 'O' ||
+  //   document.querySelector('.cell6').innerText === 'O' ||
+  //   document.querySelector('.cell7').innerText === 'O' ||
+  //   document.querySelector('.cell8').innerText === 'O' ||
+  //   document.querySelector('.cell9').innerText === 'O'
+  // ) {
+  //   document.querySelector('.cell' + Math.ceil(Math.random() * 9)).click()
+  //   console.log('test X')
+  // }
 }
 
 // Bit ugly code, but it does the job!
